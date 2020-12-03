@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recipes Project</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div id="expense-headline">הוספת הוצאה</div><br>
+        <div id="form">
+            <input type="text" id="item" placeholder="פריט">
+            <input type="number" id="amount" placeholder="סכום">
+            <input type="text" id="group" placeholder="קבוצה"><br><br>
+        </div>
+     <span><button id="addExpense">הוספת פריט</button> <button id="showExpenses">הצגת רשימת הפריטים וההוצאות</button></span>
+      
+  
+    <div id="expenses-list"></div>
+    <div id="newExpense"></div>
+        
+    <script id="addExpense-template" type="text/x-handlebars-template">
+        <div class="expense">
+            <br>
+            <div class="text">New Item:  {{item}}</div>
+            <div class="text">Amount:  {{amount}}</div>
+            <div class="text">Date:  {{date}}</div>
+            <div class="text">Group: {{group}}</div><br>
+        </div>
+        </script>
+    
+    <script id="Expenses-template" type="text/x-handlebars-template">
+    <div class="expense">
+        {{#each expensesList}}
+        <br>
+        <div class="text">Item: {{item}}</div>
+        <div class="text">Amount: {{amount}}</div>
+        <div class="text">Date: {{date}}</div>
+        <div class="text">Group: {{group}}</div><br>
+    {{/each}}
+    </div>
+    </script>
+ 
+    <script src="./jquery/dist/jquery.js"></script>
+    <script src="./handlebars/dist/handlebars.js"></script>
+    <script src="cityManager.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script> 
+
+</body>
+</html>
