@@ -38,3 +38,10 @@ $("#cityData").on("click", "#delete", function () {
     render.renderData(city.cityData)
 })
 
+$("#cityData").on("click", "#refresh", function () {
+    let cityName = $(this).closest(".city").find(".cityName").text()
+    let cityToUpdate = city.updateCity(cityName)
+    render.renderData(city.cityData)
+})
+
+
