@@ -51,7 +51,7 @@ router.put('/city/:cityName', async (req, res) => {
             condition: weatherData.data.weather[0].description,
             conditionPic: `http://openweathermap.org/img/wn/${weatherData.data.weather[0].icon}@2x.png`
         }
-        let updatedCity = await Cities.findOneAndUpdate({ name: cityName },{name: cityName} , {new: true})
+        let updatedCity = await Cities.findOneAndUpdate({ name: cityName },{cityData} , {new: true})
         console.log("updated city", updatedCity)
         res.send(updatedCity)
       } catch (err) {
