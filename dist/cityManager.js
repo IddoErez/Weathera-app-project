@@ -34,7 +34,21 @@ class CityManager {
              }
         })
      
-    }   
+    }  
+
+   updateCity = async function (cityName) {
+      let updatedCity = await $.ajax({
+        url: `city/${cityName}`,
+        method: "PUT",
+        success: function () {
+            console.log(`update of ${cityName} complete`)
+        }
+    })
+    this.cityData.unshift(updatedCity)
+    return (this.cityData)
+   }
 }
+
+
 
 

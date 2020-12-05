@@ -27,9 +27,11 @@
     <div class="city">
      {{#if _id}}
      <a class="btn-floating btn-medium waves-effect waves-light pink" id="delete"><i class="material-icons">delete</i></a>
+     <a class="btn-floating btn-medium waves-effect waves-light purple" id="refresh"><i class="material-icons">refresh</i></a>
     {{else}}
-      <a class="btn-floating btn-medium waves-effect waves-light" id="save"><i class="material-icons">save</i></a>
+      <a class="btn-floating btn-medium waves-effect waves-light turquise" id="save"><i class="material-icons">save</i></a>
        {{/if}}
+   
       <div class="cityName">{{name}}</div>
       <div class="cityTemp">{{temperature}}&deg;c</div>
       <div class="cityCondition">{{condition}}</div>
