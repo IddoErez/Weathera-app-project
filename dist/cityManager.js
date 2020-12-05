@@ -37,6 +37,8 @@ class CityManager {
     }  
 
    updateCity = async function (cityName) {
+    let cityIndex = this.cityData.findIndex(c => c.name === cityName)
+       console.log(this.cityData)
       let updatedCity = await $.ajax({
         url: `city/${cityName}`,
         method: "PUT",
@@ -44,7 +46,8 @@ class CityManager {
             console.log(`update of ${cityName} complete`)
         }
     })
-    this.cityData.unshift(updatedCity)
+    this.cityData[cityIndex] = updatedCity
+    console.log(this.cityData)
     return (this.cityData)
    }
 }
