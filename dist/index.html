@@ -4,36 +4,40 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Recipes Project</title>
+    <title>Weather App</title>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
        
-    <input type="text" id="city-input" placeholder="Search for weather in...">
+  <div class="container">
+     <h1 class="headilne">Search Weather In...</h1>
+    <input type="text" id="city-input" placeholder="What City?">
     <button type="submit"><i class="fa fa-search" id="showWeather"></i></button>
-
+  </div>
     <div id="cityData"></div>
-
+ 
 
     <script id="cityData-template" type="text/x-handlebars-template">
         {{#each allCityData}}
     <div class="city">
-     {{#unless _id}}
-      <button class="saveCity">+</button>  
+     {{#if _id}}
+     <a class="btn-floating btn-medium waves-effect waves-light pink" id="delete"><i class="material-icons">delete</i></a>
     {{else}}
-    
-      <button class="deleteCity">-</button>
-      {{/unless}}
+      <a class="btn-floating btn-medium waves-effect waves-light" id="save"><i class="material-icons">save</i></a>
+       {{/if}}
       <div class="cityName">{{name}}</div>
-      <div class="cityTemp">{{temperature}}</div>   
+      <div class="cityTemp">{{temperature}}&deg;c</div>
       <div class="cityCondition">{{condition}}</div>
       <img class="conditionPic" src="{{conditionPic}}">
     </div>
     {{/each}}
     </script>
-    </div>
+    <script type="text/javascript" src="./materialize-css/dist/js/materialize.min.js"></script>
     <script src="./jquery/dist/jquery.js"></script>
     <script src="./handlebars/dist/handlebars.js"></script>
     <script src="cityManager.js"></script>

@@ -6,6 +6,17 @@ const loadPage = async () => {
     console.log(citiesData)
     render.renderData(city.cityData)
 }
+loadPage()
+
+$("#city-input").on('keyup', async (e) => {
+    if (e.keyCode === 13) {
+        let cityName = $('#city-input').val()
+        let cityData = await city.getCityData(cityName)
+        console.log(cityData)
+        render.renderData(city.cityData)
+        console.log(city.cityData)
+    }
+})
 
 $("#showWeather").on('click', async function () {
     let cityName = $('#city-input').val()
@@ -15,18 +26,15 @@ $("#showWeather").on('click', async function () {
     console.log(city.cityData)
 })
 
-$("#cityData").on("click", ".saveCity", function () {
+$("#cityData").on("click", "#save", function () {
     let cityName = $(this).closest(".city").find(".cityName").text()
-      console.log(cityName)
+    console.log(cityName)
     let cityToSave = city.saveCity(cityName)
-    render.renderData(city.cityData)
-
 })
 
-$("#cityData").on("click", ".deleteCity", function () {
+$("#cityData").on("click", "#delete", function () {
     let cityName = $(this).closest(".city").find(".cityName").text()
     let cityToDelete = city.removeCity(cityName)
     render.renderData(city.cityData)
 })
 
-loadPage()
