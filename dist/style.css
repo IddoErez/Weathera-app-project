@@ -1,86 +1,55 @@
 body {
-    background-color: rgb(21, 142, 182);
-    font-family: "Times New Roman", Times, serif;
+background-image: url("https://www.lovethispic.com/uploaded_images/117570-Beautiful-View.jpg");
+background-color: rgb(21, 142, 182);
+   font-family: 'Raleway', sans-serif;
   }
 
-/* #city-input{
-  border-bottom: 1px solid #a0a0a0;
-  font-size: 16px;
-  padding-bottom: 2px;
-  height: 26px;
-  min-height: 26px;
-  background: #efefef;
-  font-family: Arial,Helvetica,sans-serif;
-  direction: ltr;
-  text-align: center; 
-} */
+  h1{
+   font-size: 32px;
+   margin-left: 40px;
+   font-weight: bold;
+  }
+
    #cityData {
-    background-color: #5a50b3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 10px;
+    top:10px;
+    text-align : center;
    }
   
   .city{
-      border: 5px solid #f0ffff;
+     font-weight: bold;
+     font-size: medium;
+     border: 1px solid rgb(7, 1, 15);
   }
   
-   .title{
-    display: block; text-align: center; font-weight: bold; font-size: 25px; color: rgba(68, 18, 102, 0.897);
-  }
-
-.ingredients{
-    text-align: center; display: inline-block; font-weight: bold;
-}
-
-.ingredients-title{
-    text-align: center; font-size: 18px; text-decoration: underline; font-weight: bold;
-}
   
-  #recipe-input {
-    height: 30px;
-    width: 90.5%;
-    margin-left:15px;
-    background-color: rgb(238, 220, 224);
-    
-   } 
-  
-   * {
-    box-sizing: border-box;
-  }
-  
-  /* Style the search field */
   #city-input{
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 50%;
-    background: #f1f1f1;
-  }
+    height: 40px;
+    width: 75%;
+    background-color: white;
+    font-weight:bold;
+    color: black;
+    font-weight: bold;
+    
+    
+      }
   
-  /* Style the submit button */
+  
   #showWeather{
-    float: left;
-    height: 35.5px;
     padding: 8px;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
+    border: 1px solid rgb(7, 1, 15);
+        
   }
+    
   
   #showWeather:hover {
     background: #0b7dda;
   }
   
 
-  /*  {
-    height: 43px;
-    color: #fff;
-    border-radius: 24.5px;
-   background: linear-gradient(to right,#100164,#391892 67%,#8467c7 84%,rgb(127, 138, 236));
-    border-color: transparent;
-    font-size: 16px;
-  } */
-    
  
