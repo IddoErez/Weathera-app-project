@@ -5,7 +5,8 @@ const axios = require('axios')
 const urllib = require('urllib')
 const Cities = require('../server/models/City')
 router.use(express.json())
-const apiKey = "6739778c165f3272aea54cb6c9b67754"
+const apiKey = '6739778c165f3272aea54cb6c9b67754'
+
 
 router.get('/city/:cityName', async (req, res) => {
     const { cityName } = req.params
@@ -13,11 +14,10 @@ router.get('/city/:cityName', async (req, res) => {
         const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
         const cityData = {
             name: cityName,
-            temperature: Math.floor(weatherData.data.main.temp-273.15),
+            temperature: Math.floor(weatherData.data.main.temp - 273.15),
             condition: weatherData.data.weather[0].description,
-            conditionPic: weatherData.data.weather[0].icon,
+            conditionPic: `http://openweathermap.org/img/wn/${weatherData.data.weather[0].icon}@2x.png`
         }
-        console.log("success", cityData)
         res.send(cityData)
     } catch (err) {
         res.send(err.message)
@@ -30,15 +30,15 @@ router.get('/cities', async (req, res) => {
 })
 
 router.post('/city', async (req, res) => {
-    const city = new Cities({ ...req.body })
+    const city = new Cities(req.body)
     await city.save()
     res.send(city)
 })
 
 router.delete('/city/:cityName', async (req, res) => {
-const { cityName } = req.params
-const removedCity = await Cities.findOneAndRemove({ name: cityName })
-res.send(removedCity)
+    const { cityName } = req.params
+    const removedCity = await Cities.findOneAndRemove({ name: cityName })
+    res.send(removedCity)
 })
 
 module.exports = router

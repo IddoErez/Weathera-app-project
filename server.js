@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const api = require('./routes/api')
 const bodyParser = require('body-parser')
+require('dotenv').config()
 const mongoose = require('mongoose')
 const path = require('path')
 const { cssNumber } = require('jquery')
@@ -13,7 +14,6 @@ app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/', api)
-
 
 
 const port = 4200

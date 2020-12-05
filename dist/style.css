@@ -1,0 +1,86 @@
+body {
+    background-color: rgb(21, 142, 182);
+    font-family: "Times New Roman", Times, serif;
+  }
+
+/* #city-input{
+  border-bottom: 1px solid #a0a0a0;
+  font-size: 16px;
+  padding-bottom: 2px;
+  height: 26px;
+  min-height: 26px;
+  background: #efefef;
+  font-family: Arial,Helvetica,sans-serif;
+  direction: ltr;
+  text-align: center; 
+} */
+   #cityData {
+    background-color: #5a50b3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px;
+   }
+  
+  .city{
+      border: 5px solid #f0ffff;
+  }
+  
+   .title{
+    display: block; text-align: center; font-weight: bold; font-size: 25px; color: rgba(68, 18, 102, 0.897);
+  }
+
+.ingredients{
+    text-align: center; display: inline-block; font-weight: bold;
+}
+
+.ingredients-title{
+    text-align: center; font-size: 18px; text-decoration: underline; font-weight: bold;
+}
+  
+  #recipe-input {
+    height: 30px;
+    width: 90.5%;
+    margin-left:15px;
+    background-color: rgb(238, 220, 224);
+    
+   } 
+  
+   * {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  #city-input{
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 50%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  #showWeather{
+    float: left;
+    height: 35.5px;
+    padding: 8px;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #showWeather:hover {
+    background: #0b7dda;
+  }
+  
+
+  /*  {
+    height: 43px;
+    color: #fff;
+    border-radius: 24.5px;
+   background: linear-gradient(to right,#100164,#391892 67%,#8467c7 84%,rgb(127, 138, 236));
+    border-color: transparent;
+    font-size: 16px;
+  } */
+    
+ 
