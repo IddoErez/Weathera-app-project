@@ -1,11 +1,10 @@
 const express = require('express')
 const app = express()
 const api = require('./routes/api')
-const bodyParser = require('body-parser')
-require('dotenv').config()
 const mongoose = require('mongoose')
 const path = require('path')
-const { cssNumber } = require('jquery')
+require('dotenv').config()
+const {PORT} = process.env
 mongoose.connect('mongodb://localhost/CitiesDB', { useNewUrlParser: true })
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
@@ -15,7 +14,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/', api)
 
 
-const port = 4200
-app.listen(port, function () {
-    console.log(`Running on port ${port}`)
+app.listen(PORT, function () {
+    console.log(`Running on port ${PORT}`)
 })

@@ -5,13 +5,13 @@ const axios = require('axios')
 const urllib = require('urllib')
 const Cities = require('../server/models/City')
 router.use(express.json())
-const apiKey = '6739778c165f3272aea54cb6c9b67754'
-
+require('dotenv').config()
+const {API_KEY} = process.env
 
 router.get('/city/:cityName', async (req, res) => {
     const { cityName } = req.params
     try {
-        const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+        const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`)
         const cityData = {
             name: cityName,
             temperature: Math.floor(weatherData.data.main.temp - 273.15),
@@ -30,9 +30,11 @@ router.get('/cities', async (req, res) => {
 })
 
 router.post('/city', async (req, res) => {
+   if(req.body.name){
     const city = new Cities(req.body)
     await city.save()
     res.send(city)
+   }
 })
 
 router.delete('/city/:cityName', async (req, res) => {
@@ -44,7 +46,7 @@ router.delete('/city/:cityName', async (req, res) => {
 router.put('/city/:cityName', async (req, res) => {
     const { cityName } = req.params
     try {
-        const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
+        const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`)
         const cityData = {
             name: cityName,
             temperature: Math.floor(weatherData.data.main.temp - 273.15),

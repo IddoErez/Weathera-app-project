@@ -4,24 +4,20 @@ class CityManager {
     }
     getCityData = async function (cityName) {
         let cityInfo = await $.get(`/city/${cityName}`)
+        if (cityInfo.name){
         this.cityData.unshift(cityInfo)
-        return cityInfo
+        }
     }
 
     getDataFromDB = async function () {
         let citiesData = await $.get('/cities')
-        citiesData.forEach(c => this.cityData.push(c))
-        return (this.cityData)
+        this.cityData = citiesData
     }
 
     saveCity = async function (cityName) {
-        let CityToSave = this.cityData.find(c => c.name === cityName)
-        const newCity = await $.post('/city', CityToSave) 
         let cityIndex = this.cityData.findIndex(c => c.name === cityName)
-        this.cityData.splice(cityIndex, 1)
-        this.cityData.unshift(newCity)
-        return (this.cityData)
-        //{ _id}
+        const newCity = await $.post('/city', this.cityData[cityIndex])
+        this.cityData.splice(cityIndex, 1, newCity)
     }
 
     removeCity = async function (cityName) {
@@ -45,7 +41,6 @@ class CityManager {
             }
         })
         this.cityData[cityIndex] = updatedCity
-        return (this.cityData)
     }
 }
 
