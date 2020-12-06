@@ -22,9 +22,10 @@ $("#showWeather").on('click', async function () {
     
 })
 
-$("#cityData").on("click", "#save", function () {
+$("#cityData").on("click", "#save", async function () {
     let cityName = $(this).closest(".city").find(".cityName").text()
-    let cityToSave = city.saveCity(cityName)
+    let cityToSave = await city.saveCity(cityName)
+    render.renderData(city.cityData)
 })
 
 $("#cityData").on("click", "#delete", function () {

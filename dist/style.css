@@ -4,10 +4,10 @@ background-color: rgb(21, 142, 182);
    font-family: 'Raleway', sans-serif;
   }
 
-  h1{
-   font-size: 32px;
+  .headline{
+   font-size: 55px;
    margin-left: 40px;
-   font-weight: bold;
+  
   }
 
    #cityData {
@@ -22,8 +22,7 @@ background-color: rgb(21, 142, 182);
      border: 1px solid rgb(7, 1, 15);
   }
   
-  
-  #city-input{
+    #city-input{
     height: 40px;
     width: 75%;
     background-color: white;

@@ -7,7 +7,6 @@ const mongoose = require('mongoose')
 const path = require('path')
 const { cssNumber } = require('jquery')
 mongoose.connect('mongodb://localhost/CitiesDB', { useNewUrlParser: true })
-
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 

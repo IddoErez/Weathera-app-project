@@ -16,8 +16,12 @@ class CityManager {
 
     saveCity = async function (cityName) {
         let CityToSave = this.cityData.find(c => c.name === cityName)
-        await $.post('/city', CityToSave, function (response) {
-        })
+        const newCity = await $.post('/city', CityToSave) 
+        let cityIndex = this.cityData.findIndex(c => c.name === cityName)
+        this.cityData.splice(cityIndex, 1)
+        this.cityData.unshift(newCity)
+        return (this.cityData)
+        //{ _id}
     }
 
     removeCity = async function (cityName) {
