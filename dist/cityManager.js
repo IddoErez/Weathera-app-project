@@ -7,6 +7,7 @@ class CityManager {
         if (cityInfo.name){
         this.cityData.unshift(cityInfo)
         }
+        else alert ("Please enter a city's name")
     }
 
     getDataFromDB = async function () {
