@@ -3,7 +3,7 @@ class CityManager {
         this.cityData = []
     }
     getCityData = async function (cityName) {
-        let cityInfo = await $.get(`/city/${cityName}`)
+        let cityInfo = await $.get(`/city/${cityName}`) 
         if (cityInfo.name){
         this.cityData.unshift(cityInfo)
         }

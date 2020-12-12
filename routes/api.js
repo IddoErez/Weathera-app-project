@@ -6,7 +6,7 @@ const urllib = require('urllib')
 const Cities = require('../server/models/City')
 router.use(express.json())
 require('dotenv').config()
-const {API_KEY} = process.env
+const {API_KEY} = process.env           
 
 router.get('/city/:cityName', async (req, res) => {
     const { cityName } = req.params

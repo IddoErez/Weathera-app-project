@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
 const path = require('path')
 require('dotenv').config()
 const {PORT} = process.env
-mongoose.connect('mongodb://localhost/CitiesDB', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/yourDB'
+, { useNewUrlParser: true })
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 
@@ -13,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/', api)
 
-
-app.listen(PORT, function () {
+app.listen(process.env.PORT || PORT
+    , function () {
     console.log(`Running on port ${PORT}`)
 })

@@ -41,3 +41,20 @@ $("#cityData").on("click", "#refresh", function () {
 })
 
 
+// User_id
+// "_id": {
+//     "$oid": "5fd18310612b34b060460a20"
+//   },
+//   "userName": "John Lennon",
+//   "userPassword": "567",
+//   "__v": 0
+// }
+
+// {
+//     "_id": {
+//       "$oid": "5fd182f7612b34b060460a1f"
+//     },
+//     "userName": "Ben Johnson",
+//     "userPassword": "123",
+//     "__v": 0
+//   }
