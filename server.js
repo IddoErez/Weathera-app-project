@@ -14,7 +14,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/', api)
 
-app.listen(process.env.PORT || PORT
-    , function () {
-    console.log(`Running on port ${PORT}`)
-})
+
+app.listen(process.env.PORT || PORT)
+  
