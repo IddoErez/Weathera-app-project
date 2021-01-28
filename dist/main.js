@@ -39,5 +39,3 @@ $("#cityData").on("click", "#refresh", function () {
     let cityToUpdate = city.updateCity(cityName)
     render.renderData(city.cityData)
 })
-
-

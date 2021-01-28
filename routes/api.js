@@ -9,19 +9,37 @@ require('dotenv').config()
 const {API_KEY} = process.env           
 
 router.get('/city/:cityName', async (req, res) => {
-    const { cityName } = req.params
-    try {
+        const { cityName } = req.params
+        try {
         const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`)
         const cityData = {
             name: cityName,
             temperature: Math.floor(weatherData.data.main.temp - 273.15),
             condition: weatherData.data.weather[0].description,
             conditionPic: `http://openweathermap.org/img/wn/${weatherData.data.weather[0].icon}@2x.png`
+ 
         }
         res.send(cityData)
     } catch (err) {
         res.send(err.message)
     }
+})
+
+router.get('/city/:lat/:lng', async (req, res) => {
+    const { lat } = req.params
+    const { lng } = req.params
+    try {
+    const weatherData = await axios.get(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`)
+    const cityData = {
+        name: cityName,
+        temperature: Math.floor(weatherData.data.main.temp - 273.15),
+        condition: weatherData.data.weather[0].description,
+        conditionPic: `http://openweathermap.org/img/wn/${weatherData.data.weather[0].icon}@2x.png`
+    }
+    res.send(cityData)
+} catch (err) {
+    res.send(err.message)
+}
 })
 
 router.get('/cities', async (req, res) => {
