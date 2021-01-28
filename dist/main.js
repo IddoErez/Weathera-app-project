@@ -25,6 +25,7 @@ $("#showWeather").on('click', async function () {
 $("#cityData").on("click", "#save", async function () {
     let cityName = $(this).closest(".city").find(".cityName").text()
     let cityToSave = await city.saveCity(cityName)
+    console.log(city.cityData)
     render.renderData(city.cityData)
 })
 
